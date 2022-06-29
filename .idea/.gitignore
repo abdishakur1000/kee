@@ -1,0 +1,12 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+.env/
+__init__.py
+
+__pycache__
+copy_main.py/
+/venv/
+/venv1/
+/alembic/
+venv/
