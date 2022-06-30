@@ -5,8 +5,8 @@
 __init__.py
 
 __pycache__
-copy_main.py/
-/venv/
-/venv1/
-/alembic/
+copy_main.py
+/venv
+/venv1
+/alembic
 venv/
