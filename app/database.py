@@ -1,13 +1,13 @@
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
-from .config import settings
 import psycopg2
+from psycopg2.extras import RealDictCursor
 import time
+from .config import settings
 
+SQLALCHEMY_DATABASE_URL = f'postgresql://{settings.D_username}:{settings.D_password}@{settings.D_hostname}:{settings.D_port}/{settings.D_name}'
 
-SQLALCHEMY_DATABASE_URL = f"postgresql://{settings.D_username}:" \
-    f"{settings.D_password}@{settings.D_hostname}:{settings.D_port}/{settings.D_name}"
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 
@@ -25,31 +25,14 @@ def get_db():
 
 
 # while True:
+
 #     try:
-#         conn = psycopg2.connect(host='localhost', database='abdi', user='postgres',
-#                                 password='agree101', cursor_factory=RealDictCursor)
+#         conn = psycopg2.connect(host='localhost', database='fastapi', user='postgres',
+#                                 password='password123', cursor_factory=RealDictCursor)
 #         cursor = conn.cursor()
-#         print('Database Connection was successful....')
+#         print("Database connection was succesfull!")
 #         break
 #     except Exception as error:
-#         print('Connection Failed.!!!!!')
-#         print('Error', error)
-#         time.sleep(3)
-
-
-# my_posts = [{"title": "title of post 1", "content": "content of post 1", "id": 1}, {
-#     "title": "favorite food", "content": "I like pizza", "id": 2}]
-#
-#
-# def find_post(id):
-#     for p in my_posts:
-#         if p['id'] == id:
-#             return p
-#
-#
-# def find_index_post(id):
-#     for i, p in enumerate(my_posts):
-#         if p['id'] == id:
-#             return i
-#
-#
+#         print("Connecting to database failed")
+#         print("Error: ", error)
+#         time.sleep(2)

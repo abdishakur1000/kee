@@ -46,15 +46,3 @@ def vote(vote: schemas.Vote, db: Session = Depends(database.get_db),
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-

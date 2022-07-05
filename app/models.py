@@ -1,7 +1,9 @@
+from sqlalchemy import Column, Integer, String, Boolean, ForeignKey
 from sqlalchemy.orm import relationship
+from sqlalchemy.sql.expression import text
+from sqlalchemy.sql.sqltypes import TIMESTAMP
 
 from .database import Base
-from sqlalchemy import column, Integer, Column, String, Boolean, TIMESTAMP, text, ForeignKey
 
 
 class Post(Base):
@@ -10,35 +12,31 @@ class Post(Base):
     id = Column(Integer, primary_key=True, nullable=False)
     title = Column(String, nullable=False)
     content = Column(String, nullable=False)
-    published = Column(Boolean, server_default='True', nullable=False)
-    created_At = Column(TIMESTAMP(timezone=True),
+    published = Column(Boolean, server_default='TRUE', nullable=False)
+    created_at = Column(TIMESTAMP(timezone=True),
                         nullable=False, server_default=text('now()'))
     owner_id = Column(Integer, ForeignKey(
-        'users.id', ondelete='CASCADE'), nullable=False)
+        "users.id", ondelete="CASCADE"), nullable=False)
 
-    owner = relationship('User')
+    owner = relationship("User")
 
 
 class User(Base):
     __tablename__ = "users"
-    id = Column(Integer, primary_key=True, index=False)
+    id = Column(Integer, primary_key=True, nullable=False)
     email = Column(String, nullable=False, unique=True)
     password = Column(String, nullable=False)
-    created_At = Column(TIMESTAMP(timezone=True),
+    created_at = Column(TIMESTAMP(timezone=True),
                         nullable=False, server_default=text('now()'))
-    phone_number = Column(String)
+    # phone_number = Column(Integer)
 
 
 class Vote(Base):
     __tablename__ = "votes"
-    post_id = Column(Integer, ForeignKey('posts.id', ondelete='CASCADE'), primary_key=True)
-    user_id = Column(Integer, ForeignKey('users.id', ondelete='CASCADE'), primary_key=True)
-
-
-# User_name = Column(String, nullable=False, unique=True)
-# uuid = Column(String)
-# is_active = Column(Boolean, default=False)
-
+    user_id = Column(Integer, ForeignKey(
+        "users.id", ondelete="CASCADE"), primary_key=True)
+    post_id = Column(Integer, ForeignKey(
+        "posts.id", ondelete="CASCADE"), primary_key=True)
 
 
 

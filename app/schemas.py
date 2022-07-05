@@ -16,7 +16,7 @@ class PostCreate(PostBase):
 class UserOut(BaseModel):
     id: int
     email: EmailStr
-    created_At: datetime
+    created_at: datetime
 
     class Config:
         orm_mode = True
@@ -25,7 +25,7 @@ class UserOut(BaseModel):
 
 class Post(PostBase):
     id: int
-    created_At: datetime
+    created_at: datetime
     owner_id: int
     owner: UserOut
     # is_active: bool

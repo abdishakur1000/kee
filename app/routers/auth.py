@@ -33,12 +33,3 @@ def login(user_credentials: OAuth2PasswordRequestForm = Depends(),
 
 
 
-
-
-
-
-
-
-
-
-

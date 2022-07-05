@@ -10,15 +10,13 @@ from app.config import settings
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
 config = context.config
-config.set_main_option("sqlalchemy.url", f"postgresql+psycopg2://{settings.D_username}:"
-                                         f"{settings.D_password}@{settings.D_hostname}:"
-                                         f"{settings.D_port}/{settings.D_name}")
+config.set_main_option("sqlalchemy.url", f"postgresql+psycopg2://{settings.D_username}:{settings.D_password}@{settings.D_hostname}:{settings.D_port}/{settings.D_name}")
 
 
 # Interpret the config file for Python logging.
 # This line sets up loggers basically.
-# if config.config_file_name is not None:
-fileConfig(config.config_file_name)
+if config.config_file_name is not None:
+    fileConfig(config.config_file_name)
 
 # add your model's MetaData object here
 # for 'autogenerate' support
