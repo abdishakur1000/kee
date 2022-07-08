@@ -13,14 +13,12 @@ from app import models
 from alembic import command
 
 
-SQLALCHEMY_DATABASE_URL = 'postgresql://postgres:agree101@localhost:5432/test_abdi'
-# SQLALCHEMY_DATABASE_URL =\
-#     f'postgresql://{settings.D_username}:' \
-#     f'{settings.D_password}@{settings.D_hostname}:' \
-#     f'{settings.D_port}/{settings.D_name}_test'
+SQLALCHEMY_DATABASE_URL =\
+    f'postgresql://{settings.D_username}:' \
+    f'{settings.D_password}@{settings.D_hostname}:' \
+    f'{settings.D_port}/{settings.D_name}_test'
 
 
-# @pytest.fixture(scope='module')
 @pytest.fixture()
 def session():
     print('my session fixture ran')
@@ -34,11 +32,8 @@ def session():
     finally:
         db.close()
 
-# @pytest.fixture(scope='module')
 @pytest.fixture()
 def client(session):
-    # command.upgrade('head')# TODO WAA IN AAD SAMAYASAA ALEMBIC
-    # command.downgrade('base')
     def override_get_db():
         try:
             yield session
