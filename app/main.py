@@ -11,6 +11,7 @@ from .config import settings
 
 app = FastAPI()
 
+
 origins = ["*"]
 
 app.add_middleware(

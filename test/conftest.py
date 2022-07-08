@@ -1,16 +1,23 @@
 from fastapi.testclient import TestClient
 import pytest
-from sqlalchemy import create_engine, engine
+from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
-# from app.database import get_db, Base
 from app.main import app
-from app import models
-from app.oauth2 import create_access_token
-from alembic import command
+
 from app.config import settings
-from app import database
-from database import get_db, Base
+from app.database import get_db
+from app.database import Base
+from app.oauth2 import create_access_token
+from app import models
+from alembic import command
+
+
+SQLALCHEMY_DATABASE_URL = 'postgresql://postgres:agree101@localhost:5432/test_abdi'
+# SQLALCHEMY_DATABASE_URL =\
+#     f'postgresql://{settings.D_username}:' \
+#     f'{settings.D_password}@{settings.D_hostname}:' \
+#     f'{settings.D_port}/{settings.D_name}_test'
 
 
 # @pytest.fixture(scope='module')
@@ -124,12 +131,6 @@ def test_posts(test_user, session, test_user2):
     # posts = session.query(models.Post).all()
     # return posts
 
-
-SQLALCHEMY_DATABASE_URL = 'postgresql://postgres:agree101@localhost:5432/test_abdi'
-# SQLALCHEMY_DATABASE_URL =\
-#     f'postgresql://{settings.D_username}:' \
-#     f'{settings.D_password}@{settings.D_hostname}:' \
-#     f'{settings.D_port}/{settings.D_name}_test'
 
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
