@@ -9,4 +9,7 @@ on: [push, pull_request]
         - name: pulling git rep
           uses: actions/checkout@v2
         - name: say hi to abdishakur
-          run: echo 'waan tagay'
+          run: echo 'waan tagay ma fahmin wali'
+
+
+
