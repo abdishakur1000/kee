@@ -3,12 +3,14 @@ import pytest
 from sqlalchemy import create_engine, engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
-from app.database import get_db, Base
+# from app.database import get_db, Base
 from app.main import app
 from app import models
 from app.oauth2 import create_access_token
 from alembic import command
 from app.config import settings
+from app import database
+from database import get_db, Base
 
 
 # @pytest.fixture(scope='module')
