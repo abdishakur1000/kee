@@ -7,17 +7,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: pulling git rep
-         uses: actions/checkout@v2
-      - name: say hi to abdishakur
-          run: echo 'waan tagay ma fahmin wali'
+        uses: actions/checkout@v2
       - name: Install python version 3.9
-         uses: actions/setup-python@v2
+        uses: actions/setup-python@v2
         with:
            python-version: "3.9"
       - name: update pip
           run: python -m pip install --upgrade pip
       - name: install all dependencies
-        run: pip install -r requirements.txt
+          run: pip install -r requirements.txt
 
 
 
