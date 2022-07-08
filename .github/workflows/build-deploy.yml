@@ -4,15 +4,17 @@ on: [push, pull_request]
 
 jobs:
   job1:
+    environment:
+      name: testing
     env:
-      D_HOSTNAME=localhost
-      D_PORT=5432
-      D_PASSWORD=agree101
-      D_NAME=abdi
-      D_USERNAME=postgres
-      SECRET_KEY=09d25e094faa6ca2556c818166b7a9563b93f7099f6f0f4caa6cf63b88e8d3e7
-      ALGORITHM=HS256
-      ACCESS_TOKEN_EXPIRE_MINUTES=120
+      D_HOSTNAME: ${{secrets.D_HOSTNAME}}
+      D_PORT: ${{D_POSR}}
+      D_PASSWORD: ${{D_PASSWORD}}
+      D_NAME: ${{D_NAME}}
+      D_USERNAME: ${{D_USERNAME}}
+      SECRET_KEY: ${{SECRE_KEY}}
+      ALGORITHM: ${{ALGORITHM}}
+      ACCESS_TOKEN_EXPIRE_MINUTES: ${{ACCESS_TOKEN_EXPIRE_MINUTES}}
     runs-on: ubuntu-latest
     steps:
       - name: pulling git rep
