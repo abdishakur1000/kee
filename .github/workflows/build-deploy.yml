@@ -8,11 +8,11 @@ jobs:
       name: testing
     env:
       D_HOSTNAME: ${{secrets.D_HOSTNAME}}
-      D_PORT: ${{D_POSR}}
+      D_PORT: ${{D_POST}}
       D_PASSWORD: ${{D_PASSWORD}}
       D_NAME: ${{D_NAME}}
       D_USERNAME: ${{D_USERNAME}}
-      SECRET_KEY: ${{SECRE_KEY}}
+      SECRET_KEY: ${{SECRET_KEY}}
       ALGORITHM: ${{ALGORITHM}}
       ACCESS_TOKEN_EXPIRE_MINUTES: ${{ACCESS_TOKEN_EXPIRE_MINUTES}}
     runs-on: ubuntu-latest
