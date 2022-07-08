@@ -27,6 +27,7 @@
         <list>
           <option value="alembic.context.config.set_main_option" />
           <option value="alembic.context.config.config_file_name" />
+          <option value="test.database.client.post" />
         </list>
       </option>
     </inspection_tool>

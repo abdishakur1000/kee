@@ -37,7 +37,7 @@ class Post(PostBase):
 
 
 
-class PostVote(BaseModel):
+class PostOut(BaseModel):
     Post: Post
     votes: int
 

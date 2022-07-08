@@ -11,7 +11,7 @@ router = APIRouter(
 )
 
 
-@router.get('/', response_model=List[schemas.PostVote])
+@router.get('/', response_model=List[schemas.PostOut])
 # @router.get('/')
 def get_posts(db: Session = Depends(get_db),
               current_user: int = Depends(oauth2.get_current_user),
@@ -58,7 +58,7 @@ int = Depends(oauth2.get_current_user)):
     return new_post
 
 
-@router.get("/{id}", response_model=schemas.PostVote)
+@router.get("/{id}", response_model=schemas.PostOut)
 def get_post(id: int, db: Session = Depends(get_db), current_user: int =
     Depends(oauth2.get_current_user)):
 
