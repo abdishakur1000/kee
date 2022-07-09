@@ -17,6 +17,7 @@ class Settings(BaseSettings):
         env_file = '.env'
 
 
+
 settings = Settings()
 # print(settings.D_password)
 # print(settings.D_username)
